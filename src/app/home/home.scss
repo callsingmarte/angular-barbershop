@@ -1,0 +1,70 @@
+@use '../../styles/variables' as *;
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0;
+
+  position: relative;
+  width: 100%;
+  height: 822.09px;
+  background-image: url('/images/BarberShopPic.png') ;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  align-items: center;
+  article{
+    background-color: rgba($color: #000000, $alpha: 0.5);
+  }
+  h2{
+    font-family: $mainfont;
+    font-size: 20px;
+    color: $text-link-color-hover;
+    text-align: center;
+  }
+  pre{
+    font-family: $mainfont;
+    font-size: 10px;
+    color: $text-link-color;
+    text-align: justify;
+  }
+
+  button{
+    background-color: rgba($color: #000000, $alpha: 0.0);
+    border: none;
+
+    a {
+      color: $text-link-color-hover;
+      text-decoration: none;
+      font-family: $mainfont;
+      font-size: 30px;
+    }
+  }
+}
+app-footer-decoration{
+  position: relative;
+  bottom: 15px
+}
+footer{
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: inherit;
+  width: 100%;
+  height: 15vh;
+  background-color: $background-color;
+  margin-top: 0;
+
+  bottom: 0px;
+
+  span{
+    position: absolute;
+    left: 30px;
+    color: $text-link-color-hover;
+    font-family: $mainfont;
+  }
+
+  app-social-media{
+    position: absolute;
+    right: 20px;
+  }
+}

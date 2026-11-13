@@ -1,0 +1,18 @@
+@use '../../styles/variables';
+
+.social-media{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  a {
+    background-color: #2C2323;
+    padding: 5px;
+    width: 40px;
+    border: 2px solid #FACB65;
+    border-radius: 50%;
+    align-items: center;
+    text-align: center;
+  }
+
+}

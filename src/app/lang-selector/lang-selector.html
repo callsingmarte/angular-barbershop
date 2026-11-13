@@ -1,0 +1,17 @@
+<div class="langSelector">
+  <img
+    [src]="'https://flagcdn.com/'+ flagLocales[currentLocale] + '.svg'"
+    width="100"
+    [alt]="nations[flagLocales[currentLocale]]"
+    >
+
+  <select id="lang-selector" #langs (change)="updateLocale(langs.value)">
+    @for(locale of locales; track locale){
+      <option [value]="locale">
+        <span i18n>
+        {{languages[locale] }}
+         </span>
+      </option>
+    }
+  </select>
+</div>

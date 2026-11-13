@@ -1,0 +1,66 @@
+@use '../../styles/variables' as *;
+
+header {
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: sticky;
+  right: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 15px;
+  border-bottom: 2px solid $text-link-color-hover;
+  z-index: 999999;
+
+  .brand{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     gap: 10px;
+     span {
+        font-size: 16;
+        font-family: "Sancreek", serif;
+        font-weight: 400;
+        font-style: normal;
+        color: $primary-text-color;
+     }
+  }
+
+  app-lang-selector{
+    position: absolute;
+    right: 50px;
+  }
+
+  app-menu-decoration{
+    position: relative;
+    left: 0px;
+  }
+
+  nav{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: center;
+    position: absolute;
+    top: 207px;
+    left: 90px;
+
+    a{
+      text-decoration: none;
+      font-family: "Megrim", system-ui;
+      font-weight: 400;
+      font-style: normal;
+      color: $text-link-color ;
+    }
+
+    .selected {
+      padding: 5px;
+      color: $text-link-color-hover;
+      border: 2px solid $text-link-color-hover;
+      border-style: inset;
+      border-radius: 5px;
+    }
+  }
+}

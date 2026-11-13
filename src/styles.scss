@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Sancreek&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Megrim&family=Sancreek&display=swap');
+
+.sancreek-regular {
+  font-family: "Sancreek", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.megrim-regular {
+  font-family: "Megrim", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 39;
+}
+
+footer{
+  margin: 0;
+  padding: 0;
+}
