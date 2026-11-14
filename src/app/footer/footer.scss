@@ -1,0 +1,76 @@
+@use '../../styles/variables' as *;
+
+
+footer{
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: inherit;
+  width: 100%;
+  height: 15vh;
+  background-color: $background-color;
+  margin-top: 0;
+  border-top: 2px solid $text-link-color-hover;
+  bottom: 0px;
+
+  span{
+    color: $text-link-color-hover;
+    font-family: $linkfont;
+  }
+
+  app-social-media{
+    position: absolute;
+    right: 20px;
+  }
+}
+
+/*Phone*/
+@media only screen and (max-width: 600px) {
+
+  app-footer-services{
+    display: none;
+  }
+
+  app-footer-decoration{
+    position: relative;
+    bottom: 15px
+  }
+
+  .desktop{
+    display: none;
+  }
+
+  span{
+    position: absolute;
+    left: 30px;
+  }
+}
+
+/*Desktop*/
+@media only screen and (min-width: 992px){
+  .phone{
+    display: none;
+  }
+
+  app-footer-services{
+    position: absolute;
+    bottom: 25px;
+    left: 10%;
+    transform: translateX(10%);
+  }
+
+  app-footer-decoration{
+    display: none;
+  }
+
+  footer{
+    justify-content: center;
+    padding-left: 15px;
+    height: 18vh;
+  }
+
+  span{
+    font-size: 24px;
+  }
+}
+

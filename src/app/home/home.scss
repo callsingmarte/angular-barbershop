@@ -1,70 +1,115 @@
 @use '../../styles/variables' as *;
+
 section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 0;
-
   position: relative;
   width: 100%;
   height: 822.09px;
   background-image: url('/images/BarberShopPic.png') ;
   background-repeat: no-repeat;
-  object-fit: cover;
+  background-size: cover;
+  object-fit: fill;
   align-items: center;
-  article{
-    background-color: rgba($color: #000000, $alpha: 0.5);
+  .hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 822.09px;
+    background-color: rgba($color: #000000, $alpha: 0.4);
   }
   h2{
     font-family: $mainfont;
-    font-size: 20px;
     color: $text-link-color-hover;
     text-align: center;
   }
   pre{
     font-family: $mainfont;
-    font-size: 10px;
     color: $text-link-color;
     text-align: justify;
   }
 
   button{
-    background-color: rgba($color: #000000, $alpha: 0.0);
+    background: none;
     border: none;
+    position: relative;
+    cursor: pointer;
+    svg{
+      position: absolute;
+
+      .line{
+          stroke-dasharray: 260;
+          stroke-width: 1px;
+          fill: transparent;
+          stroke: $text-link-color-hover;
+          animation: svgAnimation 2.5s linear infinite;
+      }
+      &:hover{
+        .line{
+          stroke-dasharray: 1000;
+          stroke-width: 1px;
+          fill: transparent;
+          stroke: $text-link-color-hover;
+          animation: fillingAnimation 2.5s linear normal;
+        }
+      }
+    }
 
     a {
       color: $text-link-color-hover;
-      text-decoration: none;
       font-family: $mainfont;
-      font-size: 30px;
     }
   }
 }
-app-footer-decoration{
-  position: relative;
-  bottom: 15px
-}
-footer{
-  position: sticky;
-  display: flex;
-  flex-direction: column;
-  justify-content: inherit;
-  width: 100%;
-  height: 15vh;
-  background-color: $background-color;
-  margin-top: 0;
 
-  bottom: 0px;
-
-  span{
-    position: absolute;
-    left: 30px;
-    color: $text-link-color-hover;
-    font-family: $mainfont;
+@keyframes fillingAnimation {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
   }
 
-  app-social-media{
-    position: absolute;
-    right: 20px;
+}
+
+
+@keyframes svgAnimation {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+  pre{
+        font-size: 10px;
+  }
+  h2{
+    font-size: 20px;
+  }
+  a{
+     font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 992px){
+
+  pre{
+    font-size: 24px;
+  }
+  h2{
+    font-size: 56px;
+  }
+  a{
+     font-size: 40px;
   }
 }
