@@ -3,9 +3,10 @@ import { BarberIcon } from '../barber-icon/barber-icon';
 import { MenuDecoration } from '../menu-decoration/menu-decoration';
 import { LangSelector } from '../lang-selector/lang-selector';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { Slogan } from '../slogan/slogan';
 
 @Component({
-  imports: [BarberIcon, MenuDecoration, LangSelector, RouterLink, RouterLinkActive],
+  imports: [BarberIcon, MenuDecoration, LangSelector, RouterLink, RouterLinkActive, Slogan],
   standalone: true,
   selector: 'app-menu',
   styleUrl: './menu.scss',

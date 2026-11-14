@@ -1,21 +1,28 @@
-<app-menu></app-menu>
-<section class="hero">
-  <article>
-    <h2 i18n>Barbershop(Name)</h2>
-    <pre i18n>
-      ✨ Discover Your Best Self: Where Style Meets Grooming ✨
-      Looking for a look that not only makes you look good, but feel great?
-      We design the image that boosts your confidence.
-    </pre>
-  </article>
-  <button>
-    <a href="/appointment"> 📅 Appointment 📅</a>
-  </button>
-</section>
-<footer>
-  <app-footer-decoration />
-  <div class="row">
-    <span>Barbershop (name)</span>
-    <app-social-media />
+<app-menu/>
+<section>
+  <div class="hero">
+    <article>
+      <h2 i18n>Barbershop(Name)</h2>
+      <pre i18n>
+        ✨ Discover Your Best Self: Where Style Meets Grooming ✨
+        Looking for a look that not only makes you look good, but feel great?
+        We design the image that boosts your confidence.
+      </pre>
+    </article>
+    <button>
+      <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect
+          rx="8"
+          ry="8"
+          class="line"
+          height="100%"
+          width="100%"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <a routerLink="/appointment"> 📅 Appointment 📅</a>
+    </button>
   </div>
-</footer>
+</section>
+<app-footer />
+
