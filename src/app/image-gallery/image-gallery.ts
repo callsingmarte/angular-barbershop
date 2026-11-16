@@ -12,7 +12,7 @@ export interface Image {
   styleUrl: './image-gallery.scss',
   templateUrl: './image-gallery.html',
 })
-export class  ImageGallery {
+export class  ImageGallery implements OnInit {
 
   @Input() images : Image[] = []
 
@@ -22,6 +22,10 @@ export class  ImageGallery {
   btnHeight = "5em"
 
 private galleryRef = viewChild<ElementRef<HTMLOListElement>>('gallery');
+
+  ngOnInit(): void {
+      this.currentIndex = Math.floor(this.images.length / 2);
+  }
 
   constructor() {
     afterNextRender(() => {
