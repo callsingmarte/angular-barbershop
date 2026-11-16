@@ -54,7 +54,8 @@ footer{
 
   app-footer-services{
     position: absolute;
-    bottom: 25px;
+    bottom:20%;
+    transform: translateY(20%);
     left: 10%;
     transform: translateX(10%);
   }

@@ -1,0 +1,80 @@
+@use '../../styles/variables' as *;
+
+:host{
+  --svg-scissorsW: 64;
+  --svg-scissorsH: 103;
+  --svg-razorW: 72;
+  --svg-razorH: 81;
+  --svg-machineW: 253;
+  --svg-machineH: 162;
+  --svg-combW: 169;
+  --svg-combH: 162;
+}
+
+.barber-services-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  background-color: rgba($color: $background-color, $alpha: 0.7);
+  border: 2px outset $golden-light-Color;
+  text-align: center;
+  position: relative;
+
+  hr{
+    border-color: $golden-light-Color;
+    width: 25%;
+  }
+
+  .right-line, .left-line{
+    position: absolute;
+    top: 46px;
+  }
+
+  .right-line{
+    right: 85px
+  }
+
+  .left-line{
+    left: 80px
+
+  }
+
+  .barber-services{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+
+}
+
+
+
+/*Phone*/
+@media only screen and (max-width: 600px) {
+  svg{
+    width: 80px;
+    height: 90px;
+  }
+
+
+}
+
+/*Desktop*/
+@media only screen and (min-width: 992px){
+  svg{
+    width: 100px;
+    height: 100px;
+  }
+
+  .barber-services{
+      width: 70vh;
+  }
+
+  h2{
+    font-size: 40px;
+  }
+
+}

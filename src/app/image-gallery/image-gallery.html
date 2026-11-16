@@ -1,0 +1,23 @@
+<div class="image-gallery-container">
+  <h2>· Gallery ·</h2>
+  <div class="image-gallery">
+    <button class="controls">
+        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" style="width: 5em;height: 5em;vertical-align: middle;overflow: hidden;" version="1.1" viewBox="0 0 1024 1024">
+          <path d="M467.242667 123.690667a36.266667 36.266667 0 0 1 0 51.285333L130.218667 512l337.024 337.024a36.266667 36.266667 0 1 1-51.285334 51.285333l-362.666666-362.666666a36.266667 36.266667 0 0 1 0-51.285334l362.666666-362.666666a36.266667 36.266667 0 0 1 51.285334 0z" [style.--svgfill]="svgfill" />
+        </svg>
+    </button>
+    @for(image of images; track image.src){
+      <div class="img">
+        <img  [src]="image.src" [alt]="image.alt">
+      </div>
+    }
+    <button class="controls">
+      <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" style="width: 5em;height: 5em;vertical-align: middle;overflow: hidden;" version="1.1" viewBox="0 0 1024 1024">
+        <path d="M337.024 123.690667a36.266667 36.266667 0 0 0 0 51.285333L674.048 512l-337.024 337.024a36.266667 36.266667 0 0 0 51.285333 51.285333l362.666667-362.666666a36.266667 36.266667 0 0 0 0-51.285334l-362.666667-362.666666a36.266667 36.266667 0 0 0-51.285333 0z" [style.--svgfill]="svgfill" />
+      </svg>
+    </button>
+
+  </div>
+</div>

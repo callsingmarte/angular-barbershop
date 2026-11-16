@@ -1,0 +1,107 @@
+@use '../../styles/variables' as *;
+section {
+  background-image: url('/images/BarbershopTeam.png');
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  object-fit: fill;
+  background-size: cover;
+  position: relative;
+  .hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    text-align: center;
+
+    article{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      hr{
+        position: absolute;
+        width: 25%;
+        border-color: $golden-light-Color;
+      }
+
+      h2{
+        text-align: center
+      }
+    };
+  }
+}
+
+
+/*Phone*/
+@media only screen and (max-width: 600px) {
+
+  section{
+    background-position: 45%;
+  }
+
+  section, .hero{
+       height: 100vh ;
+  }
+
+  article{
+    position: absolute;
+    top: 60%;
+    transform: translateY(60%);
+  }
+  .leftRect{
+    top: 12%;
+    transform: translateY(12%);
+    right: 90%;
+    transform: translateX(90%);
+  }
+  .rightRect{
+    top: 12%;
+    transform: translateY(12%);
+    left: 55%;
+    transform: translateX(55%);
+  }
+
+}
+
+/*Desktop*/
+@media only screen and (min-width: 992px){
+  section, .hero{
+      height: 160vh;
+  }
+
+  article{
+    position: absolute;
+    top: 55%;
+    left: 25%;
+    transform: translateX(22%);
+    transform: translateY(50%);
+    padding: 15px;
+  }
+
+  .leftRect, .rightRect{
+      top: 13%;
+      transform: translateY(13%);
+  }
+
+  .leftRect{
+    right: 82%;
+    transform: translateX(82%);
+  }
+  .rightRect{
+    left: 48%;
+    transform: translateX(48%);
+  }
+
+  h2{
+    font-size: 40px;
+  }
+
+  pre{
+    font-size: 24px;
+  }
+
+
+}
