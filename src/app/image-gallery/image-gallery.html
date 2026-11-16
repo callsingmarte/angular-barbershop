@@ -1,0 +1,24 @@
+<div class="image-gallery-container" role="region" aria-label="Image carousel" tabindex="0">
+  <h2>· Gallery ·</h2>
+  <div class="gallery-container">
+    <button class="controls" (click)="prevPic()">
+        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" [style.width--btnW]="btnWidth" [style.height--btnH]="btnHeight" style="vertical-align: middle;overflow: hidden;" version="1.1" viewBox="0 0 1024 1024">
+          <path d="M467.242667 123.690667a36.266667 36.266667 0 0 1 0 51.285333L130.218667 512l337.024 337.024a36.266667 36.266667 0 1 1-51.285334 51.285333l-362.666666-362.666666a36.266667 36.266667 0 0 1 0-51.285334l362.666666-362.666666a36.266667 36.266667 0 0 1 51.285334 0z" [style.--svgfill]="svgfill" />
+        </svg>
+    </button>
+  <ol #gallery class="image-gallery" role="list">
+    @for(image of images; track image.src){
+      <li class="carouselimg">
+        <img  [class.active]="$index === currentIndex" [id]="'img-' + $index" [src]="image.src" [alt]="image.alt" loading="lazy" decoding="async">
+      </li>
+    }
+  </ol>
+      <button class="controls" (click)="nextPic()">
+      <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" [style.width--btnW]="btnWidth" [style.height--btnH]="btnHeight" style="vertical-align: middle;overflow: hidden;" version="1.1" viewBox="0 0 1024 1024">
+        <path d="M337.024 123.690667a36.266667 36.266667 0 0 0 0 51.285333L674.048 512l-337.024 337.024a36.266667 36.266667 0 0 0 51.285333 51.285333l362.666667-362.666666a36.266667 36.266667 0 0 0 0-51.285334l-362.666667-362.666666a36.266667 36.266667 0 0 0-51.285333 0z" [style.--svgfill]="svgfill" />
+      </svg>
+    </button>
+  </div>
+</div>

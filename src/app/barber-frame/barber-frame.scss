@@ -1,0 +1,74 @@
+@use '../../styles/variables' as *;
+
+$phonesizeW: 300px;
+$phonesizeH: 400px;
+
+
+:host{
+  --svg-w: 527px;
+  --svg-h: 499px;
+}
+
+svg {
+  width: var(--svg-w);
+  height: var(--svg-h);
+}
+
+.barber-frame{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .hero{
+      background-color: rgba($background-color, 0.8);
+      border-radius: 55px;
+  }
+
+  img {
+    border-radius: 50px;
+    object-position: 15% 0%;
+    object-fit: cover;
+    mask-image: linear-gradient(to top, transparent, $background-color 100%);
+  }
+}
+
+
+/*Phone*/
+@media only screen and (max-width: 600px) {
+  svg{
+    width: $phonesizeW;
+    height: $phonesizeH;
+  }
+
+  .barber-frame{
+
+    img{
+        position: absolute;
+        top: 90px;
+        left: 35px;
+        width: 225px;
+        height: 225px;
+    }
+
+  }
+
+}
+
+/*Desktop*/
+@media only screen and (min-width: 992px){
+
+  h2{
+    font-size: 40px;
+  }
+  .barber-frame{
+    img{
+        position: absolute;
+        top: 70px;
+        width: 455px;
+        height: 380px;
+    }
+  }
+
+}
