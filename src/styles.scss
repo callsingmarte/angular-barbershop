@@ -13,15 +13,40 @@
   font-style: normal;
 }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  //scrollbar-width: thin;
+  //scrollbar-color:  $golden-light-Color $background-color;
 
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px; /* for horizontal bars */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $primary-text-color;
+    border-radius: 10px;
+    border: 2px solid #1e293b; /* creates a padding effect */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: $golden-light-Color;
+  }
   *, *::before, *::after {
     box-sizing: inherit;
   }
 }
+
 
 .row {
   display: flex;
@@ -76,9 +101,6 @@ button {
   gap: 25px
 }
 
-body{
- // background-color: $background-color;
-}
 
 @media only screen and (max-width: 600px) {
     pre{

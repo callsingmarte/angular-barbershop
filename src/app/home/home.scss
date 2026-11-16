@@ -12,7 +12,10 @@ section {
   background-size: cover;
   object-fit: fill;
   align-items: center;
+  flex: 1;
+
   .hero{
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,6 +94,7 @@ section {
 
   section, .hero{
       height: 422px;
+      min-height: 100dvh;
   }
 
   pre{
@@ -106,7 +110,7 @@ section {
 
 @media only screen and (min-width: 992px){
   section, .hero{
-      height: 822.09px;
+      min-height: 100dvh;
   }
   pre{
     font-size: 24px;

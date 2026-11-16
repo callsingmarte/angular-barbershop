@@ -4,6 +4,8 @@
   --svgfill: #FACB65;
 }
 
+
+
 .image-gallery-container{
   display: flex;
   flex-direction: column;
@@ -15,30 +17,48 @@
   margin-left: 25px;
   padding: 25px;
 
+
   .image-gallery{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 25px;
-    overflow: hidden;
     width: 100%;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    scrollbar-width: none;
+    .carouselimg {
+      scroll-snap-align: center;
 
-
+    }
     img {
+      flex-shrink: 0;
       object-fit: cover;
-      width: 250px;
-      height: 250px;
+
       border: 2px outset $golden-light-Color;
       border-radius: 15px;
       color: $text-light-color;
       padding: 12px;
       display: inline-block;
+      scroll-snap-align: center;
+      &:first-of-type{
+        scroll-snap-align: start;
+      }
+      &:last-of-type{
+        scroll-snap-align: end;
+      }
     }
+  }
 
-    button{
-      padding: 15px;
+  button{
+      z-index: 1;
+      cursor: pointer;
       border: 2px outset $golden-light-Color;
+      padding: 15px;
       border-radius: 50%;
       &:hover{
         background-color: $primary-text-color;
@@ -48,17 +68,73 @@
       }
     }
 
-  }
+    .gallery-container{
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+
 }
 /*Phone*/
 @media only screen and (max-width: 600px) {
-  .image-gallery-container{
+  $btn-width: 1em;
+  $btn-height: 1em;
+
+  .image-gallery{
+    touch-action: pan-x;
+    overscroll-behavior-x: contain;
+  }
+
+  .image-gallery::-webkit-scrollbar{
+    display: none;
+  }
+
+  .carouselimg{
+    flex: 0 0 auto;
+  }
+
+  img{
+      width: 150px;
+      height: 150px;
+      &.active{
+        width: 170px;
+        height: 170px;
+      }
 
   }
+
+  .icon{
+      width: $btn-width;
+      height: $btn-height;
+    }
 }
 
 /*Desktop*/
 @media only screen and (min-width: 992px){
+    $btn-width: 3em;
+    $btn-height: 3em;
+    img{
+        width: 250px;
+        height: 250px;
+      &.active{
+        width: 350px;
+        height: 350px;
+      }
+    }
+
+    .icon{
+      width: $btn-width;
+      height: $btn-height;
+    }
+
+    .gallery-container{
+      left: 26%;
+      width: 80vh;
+      gap: 20px;
+    }
   .image-gallery-container{
     width: 100%;
   }
