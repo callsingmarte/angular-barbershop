@@ -1,0 +1,175 @@
+@use '../../styles/variables' as *;
+
+  .services-full-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  article{
+    margin-bottom: 50px;
+    position: relative;
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 10px;
+
+    h2{
+      font-family: $mainfont;
+      color: $primary-text-color;
+    }
+
+    button{
+      border-radius: 5px;
+      border: none;
+      background-color: #192225;
+      cursor: pointer;
+      margin: 0;
+      padding: 15px;
+      img{
+        border-radius: 5px;
+      }
+      p{
+        text-align: justify;
+        padding: 15px;
+      }
+      .description-details{
+        padding: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 5px;
+        border: 2px solid #ecb008;
+        label{
+          color: #FFF;
+          font-family: Arial, Helvetica, sans-serif;
+
+        }
+        input[type=radio]{
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: $secondary-bg-color;
+            margin: 0;
+            font: inherit;
+            color: #fdfdfd;
+            width: 20px;
+            height: 20px;
+            border: 0.001px solid #344144;
+            border-radius: 50%;
+            transform: translateX(-0.5em);
+            place-content: center;
+            display: grid;
+
+            &::before{
+                content: "";
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                transform: scale(0);
+                transition: 120ms transform ease-in-out;
+                box-shadow: inset 1em 1em $secondary-bg-color;
+            }
+            &:checked{
+                &::before{
+                  transform: scale(1);
+                }
+                background-color: $golden-light-Color;
+                border: 0.001px inset $golden-light-Color;
+                color: #192225;
+            }
+            &:focus {
+                outline: max(2px, 0.15em) solid currentColor;
+                outline-offset: max(2px, 0.15em);
+              }
+        }
+
+        span{
+          color: #FFF;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+      }
+      &:hover{
+        border:  2px outset #ecb008;
+      }
+    }
+    .selected{
+      border:  2px outset #ecb008;
+    }
+  }
+
+/*Phone*/
+@media only screen and (max-width: 600px) {
+  img{
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+  }
+  .services-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  .grid{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 50px;
+  }
+
+  p{
+    width: 250px;
+  }
+  section{
+    background-image: url('/images/haircut.png') ;
+
+  }
+}
+
+/*Desktop*/
+@media only screen and (min-width: 992px){
+  .grid{
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 50px;
+    }
+  .services-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    overflow: auto;
+  }
+
+  button{
+      img{
+        width: 350px;
+        height: 250px;
+        object-fit: cover;
+      }
+      p{
+        width: 350px;
+      }
+
+      span{
+        font-size: 20px;
+      }
+  }
+
+  label{
+    font-size: 16px;
+    text-align: left;
+  }
+
+  h3{
+    font-size: 30px;
+  }
+  h2{
+    font-size: 40px;
+  }
+}

@@ -9,6 +9,7 @@ section {
   object-fit: fill;
   background-size: cover;
   position: relative;
+  flex: 1;
   .hero{
     display: flex;
     flex-direction: column;
@@ -53,15 +54,13 @@ section {
   }
   .leftRect{
     top: 12%;
-    transform: translateY(12%);
     right: 90%;
-    transform: translateX(90%);
+    transform: translate(-12%, -90%);
   }
   .rightRect{
     top: 12%;
-    transform: translateY(12%);
     left: 55%;
-    transform: translateX(55%);
+    transform: translate(-12%, -55%);
   }
 
 }
@@ -69,7 +68,7 @@ section {
 /*Desktop*/
 @media only screen and (min-width: 992px){
   section, .hero{
-      height: 160vh;
+      height: 180dvh;
   }
 
   article{

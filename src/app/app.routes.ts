@@ -4,6 +4,7 @@ import { Services } from './services/services';
 import { AboutUs } from './about-us/about-us';
 import { Appointment } from './appointment/appointment';
 import { Notfound } from './notfound/notfound';
+import { BookingComponent } from './booking/booking-component';
 
 export const routes: Routes = [
   {
@@ -25,7 +26,29 @@ export const routes: Routes = [
   },
   {
     path: 'appointment',
-    component: Appointment
+    component: Appointment,
+    children: [
+      {
+        path: '',
+        component: BookingComponent,
+        outlet: 'appointment',
+      },
+      {
+        path: 'step2',
+        component: BookingComponent,
+        outlet: 'appointment',
+      },
+      {
+        path: 'step3',
+        component: BookingComponent,
+        outlet: 'appointment',
+      },
+      {
+        path: 'step4',
+        component: BookingComponent,
+        outlet: 'appointment',
+      },
+    ]
   },
   {
     path: '**',

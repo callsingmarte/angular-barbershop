@@ -1,0 +1,101 @@
+@use '../../styles/variables' as *;
+
+
+section {
+  display: flex;
+  flex: 1;
+  background-color: $secondary-bg-color;
+    &.head{
+      flex-direction: column;
+      justify-content: left;
+      align-items: start;
+    }
+
+  &.stepper-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .stepper{
+      display: flex;
+      width: 100%;
+      counter-reset: step-counter;
+      .stepper-item{
+        display: flex;
+        gap: $stepper-spacing;
+        align-items: center;
+        counter-increment: step-counter;
+
+        h3{
+            font-weight: bold;
+            font-size: clamp(1rem, 4vw, 1.25rem);
+          }
+        &::before{
+          content: counter(step-counter);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: $stepper-circle-size;
+          height: $stepper-circle-size;
+          border-radius: 50%;
+          background-color: $stepper-bg;
+          color: $stepper-color;
+          font-weight: bold;
+
+        }
+        &:not(:last-child){
+          flex: 1;
+            &:after{
+              content: "";
+              position: relative;
+              height: 2px;
+              background-color: $stepper-bg;
+              flex: 1;
+              margin-right: 0.5rem;
+              order: 1;
+            }
+        }
+      }
+      .active{
+        &::before {
+          background-color: $stepper-active-bg;
+          color: $stepper-active-color;
+        }
+        &::after{
+          background-color: $stepper-active-bg !important;
+        }
+      }
+
+    }
+  }
+}
+
+/*Phone*/
+@media only screen and (max-width: 600px) {
+    section{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &.steps{
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        }
+        &.head{
+          justify-content: left;
+          align-items: start;
+        }
+    }
+
+}
+
+/*Desktop*/
+@media only screen and (min-width: 992px){
+    section{
+        flex-direction: row;
+        justify-content: left;
+        align-items: start;
+    }
+
+}

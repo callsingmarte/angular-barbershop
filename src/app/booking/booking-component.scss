@@ -1,0 +1,24 @@
+.booking-container {
+  display: flex;
+}
+
+/*Phone*/
+@media only screen and (max-width: 600px) {
+  .booking-container{
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+  }
+
+}
+
+/*Desktop*/
+@media only screen and (min-width: 992px){
+  .booking-container{
+      flex-direction: row;
+      text-align: center;
+      justify-content: left;
+      align-items: center;
+  }
+}
