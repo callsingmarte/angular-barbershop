@@ -1,12 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { BarberIcon } from '../barber-icon/barber-icon';
-
-export enum services {
-  HAIRCUT,
-  RAZOR,
-  DEFINITION,
-  MACHINECUT
-}
+import { services } from '../barber/barber';
 
 @Component({
   imports: [BarberIcon],
@@ -26,4 +20,6 @@ export class BarberServices {
   machineH = 162
   combW = 169
   combH = 162
+  manW = 800
+  manH = 800
 }

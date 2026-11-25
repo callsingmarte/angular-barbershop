@@ -1,4 +1,20 @@
-<div class="booking-container">
-    <app-calendar />
-    <app-barbershop-services-component />
+<div class="booking-wrapper">
+    <div class="booking-container">
+      <div class="calendar-section">
+        <h3>01/ Choose a date</h3>
+        <app-calendar (bookingDateSelected)="bookingDateSelected = $event" />
+      </div>
+      <div>
+      <div class="services-section">
+        <h3>02/ Choose a service</h3>
+        <app-barbershop-services-component (selectedBarbershopService)="selectedBarbershopService = $event" />
+      </div>
+    </div>
+  </div>
+  <button class="form-button"
+    (click)="goToStep2()"
+    [disabled]="!this.bookingDateSelected && !this.selectedBarbershopService"
+    >
+    <span>Choose the barber</span>
+  </button>
 </div>

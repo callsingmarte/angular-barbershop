@@ -47,7 +47,7 @@
         label{
           color: #FFF;
           font-family: Arial, Helvetica, sans-serif;
-
+          cursor: pointer;
         }
         input[type=radio]{
             -webkit-appearance: none;
@@ -63,6 +63,7 @@
             transform: translateX(-0.5em);
             place-content: center;
             display: grid;
+            cursor: pointer;
 
             &::before{
                 content: "";
@@ -108,17 +109,30 @@
     height: 150px;
     object-fit: cover;
   }
+  .services-full-container{
+    flex: 1;
+    height: 100%;
+    min-height: 100vh;
+  }
   .services-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 50px;
+    height: 100%;
+    flex: 1;
   }
   .grid{
     display: grid;
     grid-template-columns: auto;
     gap: 50px;
+    position: relative;
+    height: 100%;
+  }
+
+  article{
+    height: 100%;
   }
 
   p{
@@ -135,29 +149,39 @@
   .grid{
       display: grid;
       grid-template-columns: auto auto;
-      gap: 50px;
+      gap: 20px;
+      height: 50vh;
+      justify-content: flex-start;
+      align-items: flex-start;
+      direction: ltr;
+
     }
   .services-container{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    gap: 50px;
-    overflow: auto;
+    gap: 10px;
+    height: 60vh;
+    overflow-y: scroll;
+    direction: rtl;
+
   }
 
   button{
+     height: 50vh;
       img{
-        width: 350px;
-        height: 250px;
+        width: 250px;
+        height: 150px;
         object-fit: cover;
       }
       p{
-        width: 350px;
+        width: 250px;
+        font-size: 16px;
       }
 
       span{
-        font-size: 20px;
+        font-size: 16px;
       }
   }
 
@@ -167,7 +191,7 @@
   }
 
   h3{
-    font-size: 30px;
+    font-size: 20px;
   }
   h2{
     font-size: 40px;

@@ -8,8 +8,9 @@ ul{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding-left: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #344144;
   .calendar-header{
     display: flex;
     flex-direction: row;
@@ -24,7 +25,6 @@ ul{
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      gap: 50px;
       button{
         cursor: pointer;
         span{
@@ -42,7 +42,6 @@ ul{
     width: 100%;
     table{
       display: table;
-      width: 100%;
       thead{
         display: grid;
         grid-template-columns: auto auto auto auto auto auto auto;
@@ -51,7 +50,6 @@ ul{
       tbody{
         display: grid;
         grid-template-columns: auto auto auto auto auto auto auto;
-        width: 100%;
 
         tr{
           display: flex;
@@ -94,6 +92,39 @@ ul{
           }
         }
       }
+      tfoot{
+        tr{
+          display: flex;
+          justify-content: space-evenly;
+          gap: 20px;
+          td{
+            .selected-label{
+              color: $golden-light-Color;
+              &::before{
+                content: "";
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: $golden-light-Color;
+              }
+            }
+            .unavailible-label{
+              color: #DCA5A0;
+              &::before{
+                content: "";
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: #4B2E30;
+              }
+            }
+
+          }
+        }
+      }
+
     }
     .disabled{
       background-color: #182022;
@@ -113,5 +144,56 @@ ul{
         cursor: pointer;
       }
     }
+}
+.date-selected{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: start;
+  width: 100%;
+  span{
+    color: #AAB7B9;
+  }
+  .selected-date{
+    color: $golden-light-Color;
+  }
+}
+
+/*Phone*/
+@media only screen and (max-width: 600px) {
+  .calendar-container{
+    width: 90vw;
+  }
+
+  table{
+    thead{
+      width: 80vw;
+    }
+    tbody{
+      width: 80vw;
+    }
+  }
+
+  .dateNav{
+    gap: 25px;
+  }
+
+}
+
+/*Desktop*/
+@media only screen and (min-width: 992px) {
+  .calendar-container{
+      width: 100%;
+  }
+  .dateNav{
+      gap: 50px;
+  }
+
+  table{
+    width: 100%;
+    tbody{
+      width: 100%;
+    }
+  }
 
 }

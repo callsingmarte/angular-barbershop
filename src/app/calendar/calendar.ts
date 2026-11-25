@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, output, Output, ViewChild } from '@angular/core';
 import moment, { Moment } from 'moment';
 
 interface openBarbershopHours {
@@ -25,6 +25,11 @@ export enum sides{
   NEXT
 }
 
+export enum dateStatus{
+  UNAVALIBLE,
+  DISABLED,
+  AVALIBLE
+}
 
 @Component({
   imports: [],
@@ -35,6 +40,8 @@ export enum sides{
 })
 export class Calendar implements OnInit{
   readonly sides = sides
+  readonly dateStatus = dateStatus
+
   locale = moment.locale('es-Es');
   moment = moment;
   now = moment();
@@ -43,7 +50,8 @@ export class Calendar implements OnInit{
   weekdays = moment.weekdays();
   daysInMonth = moment().daysInMonth();
   days :number[] = []
-  daySelected! :number
+  bookingDateSelected = output<Moment | null>();
+  selectedBookingDate : Moment | null = null;
 
   openStablishmentHours : openBarbershopHours = {
     morning: {
@@ -124,13 +132,12 @@ export class Calendar implements OnInit{
   prevElement : HTMLElement | null = null;
 
   dateSelected(event : PointerEvent, day : number) : void {
-    this.daySelected = day;
+    this.selectedBookingDate = moment([this.now.year(), this.now.month(), day]);
     const element = event.target as HTMLElement;
     let button : HTMLElement| null = null;
 
     if(element.tagName != "BUTTON"){
        button = element.closest('button') ? element.closest('button') : element.querySelector('button');
-      console.log(button)
     }else{
       button = element
     }
@@ -143,16 +150,18 @@ export class Calendar implements OnInit{
 
     if(button == this.prevElement){
       button.classList.remove('selected')
+      this.selectedBookingDate = null
+      this.prevElement = null;
     }else{
       if(this.prevElement){
         this.prevElement.classList.remove('selected')
       }
-
+      this.prevElement = button;
       button.classList.add('selected')
     }
 
-    this.prevElement = button;
-
+    this.bookingDateSelected.emit(this.selectedBookingDate)
+    console.log(this.selectedBookingDate);
   }
 
   changeYear(sides: sides){
@@ -215,6 +224,21 @@ export class Calendar implements OnInit{
     for(let day = 0; day < this.daysInMonth; day++){
       this.days.push(day+1);
     }
+  }
 
+  getDayClassName(day : number, type : dateStatus ){
+
+    let className = "";
+
+    switch(type){
+      case dateStatus.UNAVALIBLE:
+        className = (moment(moment(`${day.toString()}-${this.now.month()+1}-${this.now.year()}`, "D-M-YYYY")).isSame(moment(), "day")) ? "current-day unavalible" : "unavalible"
+      break;
+      case dateStatus.DISABLED:
+        className = (moment(moment(`${day.toString()}-${this.now.month()+1}-${this.now.year()}`, "D-M-YYYY")).isSame(moment(), "day")) ? "current-day disabled" : "disabled"
+      break;
+    }
+
+    return className;
   }
 }

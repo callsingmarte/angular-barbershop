@@ -1,60 +1,61 @@
-<h2 i18n>Our Services</h2>
-<div class="services-container">
-@for(gender of genders; track gender){
-@if(gender == Gender.MALE){
-<article id="gentleman-services">
-  <h2 i18n>
-    Gentleman
-  </h2>
-  <div class="grid">
-  @for(service of BabershopServices; track service){
-    @if(service.gender == Gender.MALE){
-    <button (click)="selectService($event, service)">
-      <div class="img">
-        <img [src]="service.img.src" [alt]="service.img.alt"/>
-      </div>
-      <h3>{{ service.title }}</h3>
-      <p>{{service.description}}</p>
-      <div class="description-details">
-          <div class="row">
-            <input type="radio"  name="service" [value]="service.service.name"/>
-            <label for="service.service.name">{{ service.service.name }}</label>
-          </div>
-          <span>{{ service.service.duration }}</span>
-          <span>{{ service.service.price }}€</span>
-      </div>
-    </button>
+<div class="services-full-container">
+  <h2 i18n>Our Services</h2>
+  <div class="services-container">
+  @for(gender of genders; track gender){
+  @if(gender == Gender.MALE){
+  <article id="gentleman-services">
+    <h2 i18n>
+      Man
+    </h2>
+    <div class="grid">
+    @for(service of BabershopServices; track service){
+      @if(service.gender == Gender.MALE){
+      <button (click)="selectService($event, service)">
+        <div class="img">
+          <img [src]="service.img.src" [alt]="service.img.alt"/>
+        </div>
+        <h3>{{ service.title }}</h3>
+        <p>{{service.description}}</p>
+        <div class="description-details">
+            <div class="row">
+              <input type="radio"  name="service" [value]="service.service.name"/>
+              <label for="service.service.name">{{ service.service.name }}</label>
+            </div>
+            <span>{{ service.service.duration }}</span>
+            <span>{{ service.service.price }}€</span>
+        </div>
+      </button>
+      }
     }
-  }
-  </div>
-</article>
-}@else{
-<article id="woman-services">
-  <h2 i18n>
-    Woman
-  </h2>
-  <div class="grid">
-  @for(service of BabershopServices; track service){
-    @if(service.gender == Gender.FEMALE){
-    <button (click)="selectService($event, service)">
-      <div class="img">
-        <img [src]="service.img.src" [alt]="service.img.alt"/>
-      </div>
-      <h3>{{ service.title }}</h3>
-      <p>{{service.description}}</p>
-      <div class="description-details">
-          <div class="row">
-            <input type="radio"  name="service" [value]="service.service.name"/>
-            <label for="service.service.name">{{ service.service.name }}</label>
-          </div>
-          <span>{{ service.service.duration }}</span>
-          <span>{{ service.service.price }}€</span>
-      </div>
-    </button>
+    </div>
+  </article>
+  }@else{
+  <article id="woman-services">
+    <h2 i18n>
+      Woman
+    </h2>
+    <div class="grid">
+    @for(service of BabershopServices; track service){
+      @if(service.gender == Gender.FEMALE){
+      <button (click)="selectService($event, service)">
+        <div class="img">
+          <img [src]="service.img.src" [alt]="service.img.alt"/>
+        </div>
+        <h3>{{ service.title }}</h3>
+        <p>{{service.description}}</p>
+        <div class="description-details">
+            <div class="row">
+              <input type="radio"  name="service" [value]="service.service.name"/>
+              <label for="service.service.name">{{ service.service.name }}</label>
+            </div>
+            <span>{{ service.service.duration }}</span>
+            <span>{{ service.service.price }}€</span>
+        </div>
+      </button>
+      }
     }
+    </div>
+  </article>
   }
-  </div>
-</article>
-}
-}
+  }
 </div>

@@ -1,23 +1,17 @@
 <section>
   <div class="hero">
-    <img class="barber-img" [src]="barberPic.src" [alt]="barberPic.alt">
+    <img class="barber-img" [src]="barberProfile.barberProfilePic.src" [alt]="barberProfile.barberProfilePic.alt">
     <article>
-      <app-barber-frame [image]="barberPic.src" />
+      <app-barber-frame [image]="barberProfile.barberProfilePic" [name]="barberProfile.barberName" />
       <div class="col barber-description-container">
         <div class="barber-description">
           <p>
-            Tomás. Master of detail.
-            Tomás blends classic barbering techniques
-            with current trends to deliver flawless results.
-            He’s known in the shop for his sharp razor skills
-            and his ability to tailor each cut to the client’s bone structure.
-            Whether it’s a clean, military-style cut or a complex beard design,
-            Tomás ensures a polished, long-lasting finish.
+            {{barberProfile.barberDescription}}
           </p>
         </div>
-        <app-barber-services />
+        <app-barber-services [barberServices]="barberProfile.barberServices" />
       </div>
     </article>
-    <app-image-gallery [images]="barberPics" />
+    <app-image-gallery [images]="barberProfile.barberGallery" />
   </div>
 </section>

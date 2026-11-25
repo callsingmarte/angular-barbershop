@@ -1,0 +1,63 @@
+.booking-step2-container{
+  display: grid;
+  gap: 20px;
+  width: 100%;
+  .card{
+    width: 100%;
+    border: 1px solid #374e70;
+    box-shadow: 10px 10px 10px 10px rgba(#0000, 0.2);
+    padding: 20px;
+    img {
+      object-fit: cover;
+      object-position: 0px -30px;
+    }
+    h3{
+      text-align: center;
+    }
+    button{
+      border: 1px solid #374e70;
+      padding: 15px;
+      width: 100%;
+      cursor: pointer;
+      span{
+        color: #FFF;
+      }
+      &:hover{
+        background-color: #374e70;
+      }
+    }
+  }
+
+}
+/*Phone*/
+@media only screen and (max-width: 600px) {
+  .booking-step2-container{
+      grid-template-columns: auto;
+      .card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 250px;
+            height: 150px;
+        }
+      }
+  }
+
+}
+
+/*Desktop*/
+@media only screen and (min-width: 992px){
+
+  .booking-step2-container{
+      grid-template-columns: auto auto auto;
+      .card{
+        img{
+            width: 350px;
+            height: 250px;
+        }
+      }
+  }
+
+}

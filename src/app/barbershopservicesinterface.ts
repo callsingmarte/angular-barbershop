@@ -1,3 +1,4 @@
+import { services } from "./barber/barber"
 import { Image } from "./image-gallery/image-gallery"
 
 export enum Gender{
@@ -6,6 +7,7 @@ export enum Gender{
 }
 
 export interface Service{
+  type: services[]
   name: string
   duration: string
   price: string

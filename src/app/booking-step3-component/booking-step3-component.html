@@ -1,0 +1,90 @@
+<div class="booking-step3-container">
+  <div class="appointment-card">
+    <div class="card-header">
+      <span>Your appointment</span>
+      @if(appointment.hour() > 0 ){
+        <h2>{{ appointment.format("dddd,D,MMMM, HH:mm") }}</h2>
+      }@else{
+        <h2>{{ appointment.format("dddd,D,MMMM") }}</h2>
+      }
+      <span>{{ appointment.year() }}</span>
+    </div>
+    <div class="card-img">
+      <img [src]="barber.img.src" [alt]="barber.img.alt" />
+    </div>
+    <div class="card-body">
+      <h3>{{ barber.name }}</h3>
+      <span>Your barber</span>
+    </div>
+    <div class="card-footer">
+      <button (click)="changeBarber()">Change barber</button>
+    </div>
+  </div>
+  <div class="form-container">
+    <h2>Your contact data</h2>
+      <form>
+        <div class="form-data-col">
+          <div class="form-data-row">
+            <input type="text" [formField]="userForm.name"
+            [class]="getFieldClass('name')"
+            >
+            <label for="name">Name *</label>
+          </div>
+          @if ( (userForm.name().touched() || submit) && userForm.name().invalid()) {
+            <p class="error">Name is invalid</p>
+           }
+          <div class="form-data-row">
+            <input type="email" [formField]="userForm.email" [class]="getFieldClass('email')">
+            <label for="email">Email</label>
+          </div>
+          @if ((userForm.email().touched() || submit) && userForm.email().invalid()) {
+            <p class="error">Email is invalid</p>
+            }
+          <div class="form-data-row">
+            <input type="tel" [formField]="userForm.phone" [class]="getFieldClass('phone')" >
+            <label for="phone">Phone *</label>
+          </div>
+            @if ((userForm.phone().touched() || submit) && userForm.phone().invalid()) {
+              <p class="error">Phone is invalid</p>
+            }
+        </div>
+        <div class="form-data-col">
+          <div class="row">
+            <input type="checkbox" [formField]="userForm.acceptAds">
+            <label for="acceptAds">I accept receiving advertising</label>
+          </div>
+          <div class="row">
+            <input type="checkbox" [formField]="userForm.acceptNotifications">
+            <label for="acceptNotifications">I accept receiving notifications</label>
+          </div>
+          <div class="row">
+            <input type="checkbox" [formField]="userForm.acceptConditions" [class]="getFieldClass('acceptConditions')">
+            <label name="acceptConditions">I accept terms and conditions *</label>
+            @if (areTermsAccepted()) {
+              <p class="error">you must accept the conditions</p>
+            }
+          </div>
+        </div>
+     </form>
+      <div class="time-container">
+        <h3>Availible Hours</h3>
+        <div class="hours">
+          @for(datetime of datetimes; track datetime){
+            <button [class]="addTimeBtnClass(datetime)" (click)="selectTime($event, datetime)">
+              <span>
+                {{datetime.format("HH:mm:ss")}}
+              </span>
+            </button>
+          }
+        </div>
+        <span class="label-busy" >Busy</span>
+        <span class="label-availible">Availible</span>
+      </div>
+    </div>
+  </div>
+  <div class="confirm-button-container">
+    <button class="confirm-btn" [disabled]="isConfirmDisabled()" (click)="saveAppointment()">
+      <span>Confirm appointment → </span>
+    </button>
+  </div>
+
