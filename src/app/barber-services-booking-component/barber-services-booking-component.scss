@@ -1,0 +1,76 @@
+@use '../../styles/variables' as *;
+
+  $scissorsW : 64;
+  $scissorsH : 103;
+  $razorW : 72;
+  $razorH : 81;
+  $machineW : 253;
+  $machineH : 162;
+  $combW : 169;
+  $combH : 162;
+  $manW : 800;
+  $manH : 800;
+
+  .barber-services-container{
+    display: flex;
+    flex-direction: row;
+    border: 1px inset $golden-light-Color;
+    padding: 15px;
+    gap: 50px;
+    position: relative;
+    width: 100%;
+    .barber-services{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+/*Phone*/
+@media only screen and (max-width: 600px) {
+  .barber-services-container{
+    width: 80vw;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+    .barber-services{
+      justify-content: flex-start;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      .barber-service-icon{
+        flex: 0 0 auto;
+        width: 200px;
+        padding: 15px;
+        svg{
+          width: 80px;
+          height: 80px;
+        }
+      }
+
+    }
+}
+
+
+/*Desktop*/
+@media only screen and (min-width: 992px){
+  .barber-services-container{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .barber-services{
+      overflow-x: auto;
+      width: 380px;
+      .barber-service-icon{
+        flex: 0 0 auto;
+        width: 100px;
+        padding: 15px;
+        svg{
+          width: 80px;
+          height: 80px;
+        }
+      }
+    }
+  }
+
+}

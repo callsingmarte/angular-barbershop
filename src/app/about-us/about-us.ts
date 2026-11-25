@@ -24,4 +24,5 @@ export class AboutUs implements OnInit, AfterViewInit{
       this.title.nativeElement.scrollIntoView({behavior: 'smooth', block: 'center'})
     , 2000);
   }
+
 }

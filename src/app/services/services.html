@@ -1,27 +1,62 @@
 <app-menu/>
 <section>
   <div class="hero">
-    <article>
-      <h2 i18n>Gentleman</h2>
-      <button>
-        <a i18n routerLink="/appointment">Gentleman haircut -> 10€ ⏰30min</a>
-      </button>
-      <button>
-        <a i18n routerLink="/appointment">Kid haircut -> 10€ ⏰30min</a>
-      </button>
-      <button>
-        <a i18n routerLink="/appointment">Razor cut  -> 10€ ⏰30min</a>
-      </button>
-      <button>
-        <a i18n routerLink="/appointment">Shaving -> 10€ ⏰30min</a>
-      </button>
-    </article>
-    <article>
-      <h2 i18n>Woman</h2>
-      <button>
-        <a i18n routerLink="/appointment">Woman haircut -> 10 ⏰30min</a>
-      </button>
-    </article>
+    <div class="services-full-container">
+      <h2> OUR SERVICES</h2>
+      <div class="services-container">
+        @for(gender of genders; track gender){
+        @if(gender == Gender.MALE){
+        <article id="gentleman-services">
+          <h2 i18n>
+            Gentleman
+          </h2>
+          <div class="grid">
+          @for(service of BabershopServices; track service){
+            @if(service.gender == Gender.MALE){
+            <button routerLink="/appointment">
+              <div class="img">
+                <img [src]="service.img.src" [alt]="service.img.alt"/>
+              </div>
+              <h3>{{ service.title }}</h3>
+              <p>{{service.description}}</p>
+              <div class="description-details">
+                  <span class="text-align-left">{{ service.service.name }}</span>
+                  <span class="text-align-mid" >{{ service.service.duration }}</span>
+                  <span class="text-align-right">{{ service.service.price }}€</span>
+              </div>
+            </button>
+            }
+          }
+          </div>
+        </article>
+        }@else{
+        <article id="woman-services">
+          <h2 i18n>
+            Woman
+          </h2>
+          <div class="grid">
+          @for(service of BabershopServices; track service){
+            @if(service.gender == Gender.FEMALE){
+            <button routerLink="/appointment">
+              <div class="img">
+                <img [src]="service.img.src" [alt]="service.img.alt"/>
+              </div>
+              <h3>{{ service.title }}</h3>
+              <p>{{service.description}}</p>
+              <div class="description-details">
+                  <span>{{ service.service.name }}</span>
+                  <span>{{ service.service.duration }}</span>
+                  <span>{{ service.service.price }}€</span>
+              </div>
+            </button>
+            }
+          }
+          </div>
+        </article>
+        }
+        }
+      </div>
+    </div>
   </div>
 </section>
 <app-footer/>

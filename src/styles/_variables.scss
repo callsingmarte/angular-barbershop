@@ -3,6 +3,24 @@ $text-link-color: #FFF8F8;
 $text-light-color: #FFF8F8;
 $text-link-color-hover: #FACB65;
 $background-color: #0F0F0F;
+$secondary-bg-color: #101719;
 $mainfont: "Sancreek";
 $linkfont: "Megrim";
 $golden-light-Color: #FACB65;
+$small-font-size: 16;
+$primary-contrast: #E7C481;
+$bg-color-3: #212D30;
+$text-error: #971111;
+
+//Stepper
+$stepper-circle-size: clamp(1.5rem, 5vw, 3rem);
+$stepper-spacing: clamp(0.25rem, 2vw, 0.5rem);
+$stepper-size: 2rem;
+$stepper-gap: 1rem;
+$stepper-font-size: $small-font-size;
+$stepper-text-gap: .5rem;
+$stepper-track-size: .125rem;
+$stepper-bg: $bg-color-3;
+$stepper-color: #FFF;
+$stepper-active-color: #000;
+$stepper-active-bg: $primary-contrast;

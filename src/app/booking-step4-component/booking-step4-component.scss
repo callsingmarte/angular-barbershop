@@ -1,0 +1,65 @@
+@use '../../styles/variables' as *;
+.confirm-window{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100dvh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  .window-container{
+    border: 1px solid #344144;
+    padding: 50px;
+    border-radius: 15px;;
+    background-color: #192225;
+    text-align: center;
+    .confirm-window-body{
+      border-bottom: 1px solid #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .window-footer{
+      button{
+        width: 50%;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: $primary-contrast;
+        cursor: pointer;
+      }
+    }
+
+  }
+  .success-badge{
+    width: 50px;
+    height: 50px;
+    background-color: $primary-contrast;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    span{
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+}
+
+/*Phone*/
+@media only screen and (max-width: 600px) {
+
+  .window-container{
+      width: 80%;
+  }
+
+}
+
+/*Desktop*/
+@media only screen and (min-width: 992px){
+  .window-container{
+      width: 50vw;
+  }
+
+}

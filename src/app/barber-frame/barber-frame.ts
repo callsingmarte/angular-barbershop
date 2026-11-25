@@ -1,4 +1,5 @@
 import { Component, Input, input } from '@angular/core';
+import { Image } from '../image-gallery/image-gallery';
 
 @Component({
   imports: [],
@@ -10,5 +11,6 @@ import { Component, Input, input } from '@angular/core';
 export class BarberFrame {
   width = 527
   height = 499
-  @Input() image = "";
+  @Input() image! : Image;
+  @Input() name : string= ""
 }

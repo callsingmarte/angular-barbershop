@@ -88,6 +88,12 @@ p{
     color: $text-light-color;
 }
 
+.error{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: $text-error;
+  margin-left: 15px;
+}
+
 button {
   border: none;
   background: none;

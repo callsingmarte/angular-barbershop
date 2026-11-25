@@ -1,0 +1,14 @@
+<div class="booking-step2-container">
+  @for(barber of barbers; track barber){
+    <div class="card">
+      <img [src]="barber.img.src" [alt]="barber.img.alt">
+      <app-barber-services-booking-component [barberServices]="barber.services" />
+      <h3>
+        {{barber.name}}
+      </h3>
+        <button (click)="goToStep3(barber)">
+          <span>Choose {{barber.name}}</span>
+        </button>
+      </div>
+  }
+</div>>

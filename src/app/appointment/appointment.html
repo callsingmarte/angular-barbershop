@@ -1,1 +1,25 @@
-<p>appointment works!</p>
+<app-menu/>
+<section class="head">
+  <span>Online Booking</span>
+  <h2>Your next haircut begins here</h2>
+  <p>Choose the service and date better swits you</p>
+</section>
+<section class="stepper-container">
+  <ol class="stepper">
+    <li class="stepper-item" [routerLink]="['/appointment']" routerLinkActive="active" #step1>
+     <h3> Service and date </h3>
+    </li>
+    <li class="stepper-item" [routerLink]="['/appointment', { outlets: { 'appointment': ['step2'] } }]" routerLinkActive="active" #step2>
+      <h3>Barber</h3>
+    </li>
+    <li class="stepper-item" [routerLink]="['/appointment', { outlets: { 'appointment': ['step3'] } }]" routerLinkActive="active" #step3>
+      <h3>Time</h3>
+    </li>
+    <li class="stepper-item" [routerLink]="['/appointment', { outlets: { 'appointment': ['step4'] } }]" routerLinkActive="active" #step4>
+      <h3>Confirmation</h3>
+    </li>
+  </ol>
+</section>
+<section>
+  <router-outlet name='appointment'></router-outlet>
+</section>

@@ -1,0 +1,99 @@
+<div class="calendar-container">
+  <div class="calendar-header">
+    <ul class="dateNav">
+      <li class="prev">
+        <button (click)="changeYear(sides.PREV)">
+          <span>&#10094; </span>
+        </button>
+      </li>
+      <li>
+          <h2 class="current-date-to-move" (click)="moveToCurrentDate()" >{{moment().format("dddd, MMMM, yyyy")}}</h2>
+          <h3>{{SelectedYear }}</h3>
+      </li>
+      <li  class="next">
+          <button>
+            <span (click)="changeYear(sides.NEXT)"> &#10095;</span>
+          </button>
+      </li>
+    </ul>
+  </div>
+  <div class="calendar-body">
+    <ul class="dateNav">
+      <li class="prev">
+        <button (click)="changeMonth(sides.PREV)">
+         <span>&#10094; </span>
+        </button>
+      </li>
+      <li>
+        <h3>{{ selectedMonth }}</h3>
+      </li>
+      <li class="next">
+        <button>
+         <span (click)="changeMonth(sides.NEXT)"> &#10095;</span>
+        </button>
+      </li>
+    </ul>
+    <table>
+      <thead>
+        @for(weekday of weekdays; track weekday){
+          <th>
+            <h4>{{ weekday.substring(0,3) }}</h4>
+          </th>
+        }
+      </thead>
+      <tbody class="calendar-days" #calendarDays>
+        @for(day of days; track day){
+          @if(
+            moment(moment(`${day}-${now.month()+1}-${now.year()}`, "D-M-YYYY")).isBefore(moment().subtract(1, 'days'))
+            || moment(`${day}-${now.month()+1}-${now.year()}`, "D-M-YYYY").isoWeekday() == 7
+            ){
+                <tr [class]="getDayClassName(day, dateStatus.DISABLED)">
+                  <td>
+                    <button disabled>
+                      <span>{{day}}</span>
+                    </button>
+                  </td>
+                </tr>
+          }@else if (busyDayHours.find((busyDayHour) =>
+         (busyDayHour.day == day
+          && busyDayHour.month.toString() === selectedMonth
+          && busyDayHour.year.toString() === SelectedYear
+         )
+         )?.isDayfilled == true) {
+            <tr [class]="getDayClassName(day, dateStatus.UNAVALIBLE)">
+              <td>
+                <button disabled>
+                  <span>{{day}}</span>
+                </button>
+              </td>
+            </tr>
+         }@else{
+            <tr>
+              <td>
+                <button (click)="dateSelected($event, day)">
+                  <span>{{day}}</span>
+                </button>
+              </td>
+            </tr>
+          }
+        }
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>
+            <span class="selected-label"> Selected</span>
+          </td>
+          <td>
+            <span class="unavailible-label"> Not availible</span>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+@if(selectedBookingDate){
+  <div class="date-selected">
+    <span>{{this.selectedBookingDate.format("MMMM, YYYY")}}</span>
+    <span i18n class="selected-date">{{this.selectedBookingDate.format("D, MMMM")}} selected</span>
+  </div>
+}

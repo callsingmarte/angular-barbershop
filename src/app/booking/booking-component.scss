@@ -1,0 +1,81 @@
+.booking-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  .booking-container {
+    display: flex;
+    gap: 20px;
+
+    .calendar-section, .services-section{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+  }
+  .form-button{
+    background-color: #E7C481;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    &:disabled{
+      cursor: no-drop;
+      background-color: #23292b;
+      span{
+        color: #FFF
+      }
+    }
+    &:hover{
+      transform: scale(1.2);
+    }
+    span{
+      color: #182022;
+    }
+  }
+
+}
+
+/*Phone*/
+@media only screen and (max-width: 600px) {
+  .booking-container{
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    .calendar-section, .services-section{
+      align-items: center;
+      flex: 1;
+      min-width: 0;
+      height: 100%;
+    }
+  }
+  .form-button{
+    width: 100%;
+  }
+}
+
+/*Desktop*/
+@media only screen and (min-width: 992px){
+  .booking-container{
+      flex-direction: row;
+      text-align: center;
+      justify-content: left;
+      align-items: center;
+
+      .calendar-section, .services-section{
+        align-items: flex-start;
+        justify-content: left;
+        height: 100vh;
+      }
+
+      .form-button{
+          position: absolute;
+          bottom: 50px;
+          height: 50px;
+          width: 30vw;
+      }
+
+  }
+}
